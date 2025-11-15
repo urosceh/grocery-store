@@ -1,5 +1,6 @@
 import { UserRepository } from '../../database/repository/User.repo';
 import { JwtUserToken } from '../entity/JwtToken';
+import { StoreTree } from '../entity/StoreTree';
 import { CreateUserAttributes } from '../types/CreateUserAttributes';
 
 export class UserService {
@@ -15,5 +16,10 @@ export class UserService {
 
   public async create(createUserAttributes: CreateUserAttributes): Promise<void> {
     const user = await this.userRepository.create(createUserAttributes);
+  }
+
+  public async getAvailableStores(storeId: string): Promise<string[]> {
+    const tree = StoreTree.getInstance();
+    return tree.getDescendants(storeId);
   }
 }

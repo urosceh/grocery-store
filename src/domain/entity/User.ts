@@ -28,4 +28,13 @@ export class User {
   public get storeId(): string {
     return this._storeId;
   }
+
+  public toDto() {
+    return {
+      username: this._username,
+      name: this._name,
+      role: this._role,
+      storeId: this._storeId,
+    };
+  }
 }

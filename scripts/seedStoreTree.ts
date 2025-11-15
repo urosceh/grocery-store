@@ -2,11 +2,8 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 
-import dotenv from 'dotenv';
 import mongoose, { Types } from 'mongoose';
 import { StoreNodeModel } from '../src/database/model/StoreNode.model';
-
-dotenv.config();
 
 type RawStoreNode = {
   _id: string;

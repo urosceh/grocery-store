@@ -1,10 +1,7 @@
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { UserModel } from '../src/database/model/User.model';
-
-dotenv.config();
 
 type RawUser = {
   username: string;

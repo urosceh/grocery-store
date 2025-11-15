@@ -10,9 +10,9 @@
       "request": "launch",
       "args": ["--require", "ts-node/register", "${workspaceFolder}/src/main.ts"],
       "env": {
-        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store",
+        "MONGODB_URI": "mongodb://localhost:27017/grocery-store",
         "JWT_SECRET": "test-secret",
-        "JWT_EXPIRES_IN": "5m"
+        "JWT_EXPIRES_IN": "7200"
       }
     },
     {
@@ -21,7 +21,7 @@
       "request": "launch",
       "args": ["--require", "ts-node/register", "${workspaceFolder}/scripts/seedStoreTree.ts"],
       "env": {
-        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store"
+        "MONGODB_URI": "mongodb://localhost:27017/grocery-store"
       }
     },
     {
@@ -30,7 +30,7 @@
       "request": "launch",
       "args": ["--require", "ts-node/register", "${workspaceFolder}/scripts/seedUsers.ts"],
       "env": {
-        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store"
+        "MONGODB_URI": "mongodb://localhost:27017/grocery-store"
       }
     }
   ]

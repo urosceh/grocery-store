@@ -10,7 +10,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "esnext",
-    "types": ["node"],
+    "types": ["node", "jest"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],

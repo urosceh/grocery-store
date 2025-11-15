@@ -27,9 +27,9 @@ export class GetPersonnelRequest extends AbstractUserRequest {
   constructor(req: any) {
     super(req);
     this._targetStoreId = req.params.storeId as string;
-    this._includeChildNodes = (req.query.includeChildNodes as boolean) ?? false;
-    this._limit = (req.query.limit as number) ?? 100;
-    this._offset = (req.query.offset as number) ?? 0;
+    this._includeChildNodes = req.query.includeChildNodes === 'true';
+    this._limit = Number(req.query.limit as number) ?? 100;
+    this._offset = Number(req.query.offset as number) ?? 0;
     switch (req.query.type) {
       case 'manager':
         if (this.userRole !== 'manager') {

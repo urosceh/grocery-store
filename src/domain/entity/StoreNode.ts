@@ -34,4 +34,12 @@ export class StoreNode {
   public get ancestorIds(): string[] {
     return this._ancestorIds;
   }
+
+  public toDto() {
+    return {
+      id: this._id,
+      displayName: this._displayName,
+      kind: this._kind,
+    };
+  }
 }

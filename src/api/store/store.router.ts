@@ -16,5 +16,7 @@ export function storeRouter(storeController: StoreController): Router {
     storeController.getPersonnel,
   );
 
+  router.get('/user-stores', TokenValidationMiddleware.verifyToken, storeController.getUserStores);
+
   return router;
 }

@@ -1,0 +1,201 @@
+{
+  "info": {
+    "name": "Grocery Store API",
+    "_postman_id": "0a3a3b5b-1f2d-4c83-93d8-6b5c5c2b9e20",
+    "description": "Postman collection for Grocery Store API. Login stores JWT as a collection variable used by subsequent requests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{jwt}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "grocery-store-host",
+      "value": "localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "jwt",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"user.1.1\",\n  \"password\": \"user11\"\n}"
+            },
+            "url": {
+              "raw": "http://{{grocery-store-host}}/api/user/login",
+              "protocol": "http",
+              "host": [
+                "{{grocery-store-host}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "login"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Save JWT string from response into collection variable",
+                  "let token = '';",
+                  "try {",
+                  "  const body = pm.response.json();",
+                  "  token = typeof body === 'string' ? body : (body.token || body.jwt || '');",
+                  "} catch (e) {",
+                  "  token = pm.response.text();",
+                  "}",
+                  "pm.test('Received token', function () {",
+                  "  pm.expect(token).to.be.a('string').and.not.empty;",
+                  "});",
+                  "pm.collectionVariables.set('jwt', token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://{{grocery-store-host}}/api/user/logout",
+              "protocol": "http",
+              "host": [
+                "{{grocery-store-host}}"
+              ],
+              "path": [
+                "api",
+                "user",
+                "logout"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"new.user\",\n  \"name\": \"New User\",\n  \"password\": \"changeme\",\n  \"role\": \"employee\",\n  \"storeId\": \"000000000000000000000001\"\n}"
+            },
+            "url": {
+              "raw": "http://{{grocery-store-host}}/api/user",
+              "protocol": "http",
+              "host": [
+                "{{grocery-store-host}}"
+              ],
+              "path": [
+                "api",
+                "user"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Store",
+      "item": [
+        {
+          "name": "Get Personnel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{grocery-store-host}}/api/store/000000000000000000000001/personnel?type=all&includeChildNodes=true&limit=10&offset=0",
+              "protocol": "http",
+              "host": [
+                "{{grocery-store-host}}"
+              ],
+              "path": [
+                "api",
+                "store",
+                "000000000000000000000001",
+                "personnel"
+              ],
+              "query": [
+                {
+                  "key": "type",
+                  "value": "all"
+                },
+                {
+                  "key": "includeChildNodes",
+                  "value": "true"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get User Stores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://{{grocery-store-host}}/api/store/user-stores",
+              "protocol": "http",
+              "host": [
+                "{{grocery-store-host}}"
+              ],
+              "path": [
+                "api",
+                "store",
+                "user-stores"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
