@@ -38,6 +38,17 @@ export class StoreTree {
     return ancestry.has(rootKey);
   }
 
+  public getDescendants(nodeId: string | ObjectId): string[] {
+    const rootKey = nodeId.toString();
+    const result: string[] = [];
+    for (const [nodeKey, ancestry] of this._ancestryIndex.entries()) {
+      if (nodeKey !== rootKey && ancestry.has(rootKey)) {
+        result.push(nodeKey);
+      }
+    }
+    return result;
+  }
+
   private buildAncestryIndex(nodes: StoreNode[]): Map<string, Set<string>> {
     const ancestryIndex = new Map();
 

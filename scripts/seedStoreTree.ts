@@ -15,6 +15,14 @@ type RawStoreNode = {
   children?: RawStoreNode[];
 };
 
+type InsertStoreNode = {
+  _id: Types.ObjectId;
+  displayName: string;
+  kind: string;
+  parentId: Types.ObjectId | null;
+  ancestorIds: Types.ObjectId[];
+};
+
 const DEFAULT_URI = 'mongodb://127.0.0.1:27017/grocery-store';
 const treePath = path.resolve(process.cwd(), './scripts/data/storeTree.json');
 
@@ -28,7 +36,7 @@ function flattenTree(
   parentId: Types.ObjectId | null,
   ancestorIds: Types.ObjectId[],
   pathPrefix: string[],
-): any[] {
+): InsertStoreNode[] {
   return nodes.flatMap((node) => {
     const currentId = Types.ObjectId.createFromHexString(node._id);
     const nodePath = [...pathPrefix, node.displayName];
@@ -39,7 +47,7 @@ function flattenTree(
       displayName: node.displayName,
       kind: node.kind,
       parentId,
-      ancestorIds,
+      ancestorIds: nodeAncestorIds,
     };
 
     if (!node.children?.length) {
