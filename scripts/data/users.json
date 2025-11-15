@@ -1,0 +1,23 @@
+[
+  {
+    "username": "marko",
+    "password": "marko123",
+    "name": "Marko Nikolic",
+    "role": "manager",
+    "storeId": "000000000000000000000001"
+  },
+  {
+    "username": "aleksa",
+    "password": "aleksa123",
+    "name": "Aleksa Petrovic",
+    "role": "manager",
+    "storeId": "000000000000000000000002"
+  },
+  {
+    "username": "djordje",
+    "password": "djordje123",
+    "name": "Djordje Miljkovic",
+    "role": "manager",
+    "storeId": "000000000000000000000003"
+  }
+]

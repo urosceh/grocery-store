@@ -1,0 +1,146 @@
+[
+  {
+    "_id": "000000000000000000000001",
+    "displayName": "Srbija",
+    "kind": "OFFICE",
+    "children": [
+      {
+        "_id": "000000000000000000000002",
+        "displayName": "Vojvodina",
+        "kind": "OFFICE",
+        "children": [
+          {
+            "_id": "000000000000000000000003",
+            "displayName": "Severnobacki okrug",
+            "kind": "OFFICE",
+            "children": [
+              {
+                "_id": "000000000000000000000004",
+                "displayName": "Subotica",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000005",
+                    "displayName": "Radnja 1",
+                    "kind": "STORE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "000000000000000000000006",
+            "displayName": "Juznobacki okrug",
+            "kind": "OFFICE",
+            "children": [
+              {
+                "_id": "000000000000000000000007",
+                "displayName": "Novi Sad",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000008",
+                    "displayName": "Detelinara",
+                    "kind": "OFFICE",
+                    "children": [
+                      {
+                        "_id": "000000000000000000000009",
+                        "displayName": "Radnja 2",
+                        "kind": "STORE"
+                      },
+                      {
+                        "_id": "00000000000000000000000a",
+                        "displayName": "Radnja 3",
+                        "kind": "STORE"
+                      }
+                    ]
+                  },
+                  {
+                    "_id": "00000000000000000000000b",
+                    "displayName": "Liman",
+                    "kind": "OFFICE",
+                    "children": [
+                      {
+                        "_id": "00000000000000000000000c",
+                        "displayName": "Radnja 4",
+                        "kind": "STORE"
+                      },
+                      {
+                        "_id": "00000000000000000000000d",
+                        "displayName": "Radnja 5",
+                        "kind": "STORE"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": "00000000000000000000000e",
+        "displayName": "Grad Beograd",
+        "kind": "OFFICE",
+        "children": [
+          {
+            "_id": "00000000000000000000000f",
+            "displayName": "Novi Beograd",
+            "kind": "OFFICE",
+            "children": [
+              {
+                "_id": "000000000000000000000010",
+                "displayName": "Bezanija",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000011",
+                    "displayName": "Radnja 6",
+                    "kind": "STORE"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "_id": "000000000000000000000012",
+            "displayName": "Vracar",
+            "kind": "OFFICE",
+            "children": [
+              {
+                "_id": "000000000000000000000013",
+                "displayName": "Neimar",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000014",
+                    "displayName": "Radnja 7",
+                    "kind": "STORE"
+                  }
+                ]
+              },
+              {
+                "_id": "000000000000000000000015",
+                "displayName": "Crveni krst",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000016",
+                    "displayName": "Radnja 8",
+                    "kind": "STORE"
+                  },
+                  {
+                    "_id": "000000000000000000000017",
+                    "displayName": "Radnja 9",
+                    "kind": "STORE"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+

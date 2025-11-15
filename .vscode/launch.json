@@ -1,0 +1,35 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch API",
+      "type": "node",
+      "request": "launch",
+      "args": ["--require", "ts-node/register", "${workspaceFolder}/src/api/index.ts"],
+      "env": {
+        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store"
+      }
+    },
+    {
+      "name": "Seed Store Tree",
+      "type": "node",
+      "request": "launch",
+      "args": ["--require", "ts-node/register", "${workspaceFolder}/scripts/seedStoreTree.ts"],
+      "env": {
+        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store"
+      }
+    },
+    {
+      "name": "Seed Users",
+      "type": "node",
+      "request": "launch",
+      "args": ["--require", "ts-node/register", "${workspaceFolder}/scripts/seedUsers.ts"],
+      "env": {
+        "MONGODB_URI": "mongodb://admin:admin@localhost:27017/grocery-store"
+      }
+    }
+  ]
+}
