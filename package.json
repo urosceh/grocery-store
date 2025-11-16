@@ -8,7 +8,8 @@
     "seed:store-tree": "ts-node scripts/seedStoreTree.ts",
     "seed:users": "ts-node scripts/seedUsers.ts",
     "seed:all": "npm run seed:store-tree && npm run seed:users",
-    "start": "ts-node src/main.ts"
+    "start": "ts-node src/main.ts",
+    "test:api": "node scripts/fullAppTestScript.js"
   },
   "keywords": [],
   "author": "",

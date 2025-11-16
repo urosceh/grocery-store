@@ -54,11 +54,13 @@ The API listens on `http://localhost:${PORT}` (default `3000`).
 
 - `npm start` — run API via `ts-node`
 - `npm test` — run Jest tests
+- `npm test:api` - run JS script that tests API
 
 ### Running tests
 
 ```bash
 npm test
+npm test:api
 ```
 
 Notes:
@@ -84,23 +86,6 @@ Notes:
 - `src/config` — configuration (Mongo)
 - `scripts` — seed scripts and data files
 - `test` — unit tests (domain entities and services)
-
-### Troubleshooting
-
-- Node version issues
-  - Use `nvm use`. If not installed for this version, run `nvm install` then `nvm use`.
-- Cannot connect to MongoDB
-  - Ensure Docker is running and `docker-compose ps` shows `mongo` healthy.
-  - Confirm credentials and `MONGODB_URI` match your environment.
-  - The app uses `MONGO_INITDB_*` and `MONGODB_URI` (defaults shown above).
-- JWT errors (401/403)
-  - Ensure `JWT_SECRET` is set in `.env` and the `Authorization: Bearer <token>` header is present.
-- Store access denied (403)
-  - The authenticated user must have access to the requested store subtree.
-- Empty results from `/personnel`
-  - Confirm you seeded the store tree and users, and used a valid `storeId`.
-- App fails on startup complaining about missing data
-  - Seed the store tree first, then users.
 
 ### License
 

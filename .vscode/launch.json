@@ -32,6 +32,12 @@
       "env": {
         "MONGODB_URI": "mongodb://localhost:27017/grocery-store"
       }
+    },
+    {
+      "name": "Full App Test",
+      "type": "node",
+      "request": "launch",
+      "args": ["--require", "ts-node/register", "${workspaceFolder}/scripts/fullAppTest.js"]
     }
   ]
 }
