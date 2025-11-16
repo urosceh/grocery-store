@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch",
-    "coverage": "jest --coverage",
+    "seed:store-tree": "ts-node scripts/seedStoreTree.ts",
+    "seed:users": "ts-node scripts/seedUsers.ts",
+    "seed:all": "npm run seed:store-tree && npm run seed:users",
     "start": "ts-node src/main.ts"
   },
   "keywords": [],

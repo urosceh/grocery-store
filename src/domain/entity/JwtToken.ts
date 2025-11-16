@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { UnauthorizedAccess } from '../error/error.index';
 import { JwtUserTokenPayload } from '../types/JwtUserTokenPayload';
 
 export class JwtUserToken {
@@ -16,6 +17,10 @@ export class JwtUserToken {
   }
 
   public static verify(token: string): JwtUserTokenPayload {
-    return jwt.verify(token, this.secret) as JwtUserTokenPayload;
+    try {
+      return jwt.verify(token, this.secret) as JwtUserTokenPayload;
+    } catch (error) {
+      throw new UnauthorizedAccess('Invalid token');
+    }
   }
 }

@@ -1,12 +1,12 @@
 ### Grocery Store API
 
-A TypeScript/Express API backed by MongoDB and Mongoose for a hierarchical grocery store organization. Includes JWT-based auth, request validation, and a store-tree access model, plus seeders and unit tests.
+A TypeScript/Express API backed by MongoDB and Mongoose for a hierarchical grocery store organization.
 
 ### Tech stack
 
 - **Runtime**: Node.js + TypeScript (`ts-node`)
 - **Web**: Express 5, Joi validation
-- **DB**: MongoDB (Mongoose 8)
+- **DB**: MongoDB with Mongoose
 - **Auth**: JWT (HS256)
 - **Tests**: Jest + ts-jest
 - **Container**: Docker Compose (MongoDB only)
@@ -14,17 +14,13 @@ A TypeScript/Express API backed by MongoDB and Mongoose for a hierarchical groce
 ### Prerequisites
 
 - Node.js 20+ and npm
-  - If you use nvm:
-    - Use the project’s version: `nvm use`
-    - If it says no version installed: `nvm install` then `nvm use`
-- Docker (optional, recommended for MongoDB)
+- Docker or MongoDB installed locally
 
 ### Quick start (local)
 
 1. Install dependencies
 
 ```bash
-nvm use || nvm install && nvm use
 npm install
 ```
 
@@ -39,14 +35,12 @@ This starts Mongo on `localhost:27017` with username/password `admin/admin`.
 3. Seed the database
 
 ```bash
-npm exec ts-node scripts/seedStoreTree.ts
-npm exec ts-node scripts/seedUsers.ts
+npm run seed:all
 ```
 
 Notes:
 
 - Seed scripts honor `MONGODB_URI` and connect using the Mongo credentials above.
-- Run store tree seeding before user seeding.
 
 4. Start the API
 
@@ -60,8 +54,6 @@ The API listens on `http://localhost:${PORT}` (default `3000`).
 
 - `npm start` — run API via `ts-node`
 - `npm test` — run Jest tests
-- `npm run test:watch` — watch mode
-- `npm run coverage` — coverage report
 
 ### Running tests
 
@@ -72,7 +64,6 @@ npm test
 Notes:
 
 - Tests run under Node and do not require MongoDB.
-- `test/jest.setup.ts` provides default `JWT_SECRET` and `JWT_EXPIRES_IN` for tests.
 
 ### Postman collection
 
@@ -84,22 +75,6 @@ Notes:
   1. Run the `User / Login` request first (uses seeded credentials).
   2. The returned JWT is stored in the `jwt` collection variable.
   3. Other requests inherit Bearer auth and will use `{{jwt}}` automatically.
-
-### Running MongoDB with Docker Compose
-
-```bash
-docker-compose up -d
-docker-compose ps
-docker-compose logs -f mongo
-```
-
-To stop:
-
-```bash
-docker-compose down
-```
-
-Data is persisted in the `mongo_data` volume.
 
 ### Project structure
 

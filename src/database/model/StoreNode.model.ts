@@ -39,16 +39,6 @@ const storeNodeSchema = new Schema(
   },
 );
 
-const example: StoreNodeDoc = {
-  _id: new Types.ObjectId(),
-  displayName: 'test',
-  kind: 'STORE',
-  parentId: null,
-  ancestorIds: [],
-  createdAt: new Date(),
-  updatedAt: new Date(),
-};
-
 export type StoreNodeDoc = InferSchemaType<typeof storeNodeSchema>;
 
 export const StoreNodeModel = mongoose.model('StoreNode', storeNodeSchema);

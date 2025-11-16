@@ -1,4 +1,5 @@
 import type { ObjectId } from 'mongodb';
+import { Types } from 'mongoose';
 import { BadRequest } from '../error/error.index';
 import { StoreNode } from './StoreNode';
 
@@ -24,6 +25,10 @@ export class StoreTree {
     }
     StoreTree.instance = new StoreTree(nodes);
     return StoreTree.instance;
+  }
+
+  public doesStoreExist(storeId: string): boolean {
+    return Types.ObjectId.isValid(storeId) && this._ancestryIndex.has(storeId.toString());
   }
 
   public isInSubtree(nodeId: ObjectId, storeId: ObjectId): boolean {

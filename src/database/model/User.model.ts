@@ -31,7 +31,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
-      unique: true,
+      unique: [true, 'Username must be unique!'],
       index: true,
     },
     password: {

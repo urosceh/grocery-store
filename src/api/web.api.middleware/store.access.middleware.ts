@@ -16,7 +16,13 @@ export class StoreAccessMiddleware {
       const target = Types.ObjectId.createFromHexString(targetStoreId);
       const root = Types.ObjectId.createFromHexString(userStoreId);
 
-      const isAllowed = StoreTree.getInstance().isInSubtree(root as unknown as any, target as unknown as any);
+      const storeTree = StoreTree.getInstance();
+
+      if (!storeTree.doesStoreExist(targetStoreId)) {
+        throw new BadRequest('Non existing storeId');
+      }
+
+      const isAllowed = storeTree.isInSubtree(root as unknown as any, target as unknown as any);
       if (!isAllowed) {
         throw new ForbiddenAccess('User does not have access to the requested store');
       }

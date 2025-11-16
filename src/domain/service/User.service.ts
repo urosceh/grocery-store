@@ -15,7 +15,7 @@ export class UserService {
   }
 
   public async create(createUserAttributes: CreateUserAttributes): Promise<void> {
-    const user = await this.userRepository.create(createUserAttributes);
+    await this.userRepository.create(createUserAttributes);
   }
 
   public async getAvailableStores(storeId: string): Promise<string[]> {

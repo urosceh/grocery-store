@@ -17,7 +17,7 @@ export class UserController {
 
   public create = async (req: Request, res: Response) => {
     const request = new CreateUserRequest(req);
-    const result = await this.userService.create(request.createUserBody);
-    res.json(result);
+    await this.userService.create(request.createUserBody);
+    res.json('User created successfully');
   };
 }

@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { UnauthorizedAccess } from '../../../domain/error/error.index';
+import { ForbiddenAccess } from '../../../domain/error/error.index';
 import { AbstractUserRequest } from '../../abstract/abstract.user.request';
 import { mongoObjectIdSchema } from '../../common/validation';
 
@@ -28,12 +28,12 @@ export class GetPersonnelRequest extends AbstractUserRequest {
     super(req);
     this._targetStoreId = req.params.storeId as string;
     this._includeChildNodes = req.query.includeChildNodes === 'true';
-    this._limit = Number(req.query.limit as number) ?? 100;
-    this._offset = Number(req.query.offset as number) ?? 0;
+    this._limit = req.query.limit ? Number(req.query.limit) : 100;
+    this._offset = req.query.offset ? Number(req.query.offset) : 0;
     switch (req.query.type) {
       case 'manager':
         if (this.userRole !== 'manager') {
-          throw new UnauthorizedAccess('You are not authorized to get manager personnel');
+          throw new ForbiddenAccess('You are not authorized to get manager personnel');
         }
         this._type = 'manager';
         break;
