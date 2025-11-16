@@ -54,14 +54,7 @@ The API listens on `http://localhost:${PORT}` (default `3000`).
 
 - `npm start` — run API via `ts-node`
 - `npm test` — run Jest tests
-- `npm test:api` - run JS script that tests API
-
-### Running tests
-
-```bash
-npm test
-npm test:api
-```
+- `npm run test:api` - run JS script that tests API
 
 Notes:
 
