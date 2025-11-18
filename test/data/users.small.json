@@ -1,0 +1,24 @@
+[
+  { "username": "tuser.root.m1", "password": "pass1", "name": "Root Manager 1", "role": "manager", "storeId": "000000000000000000000001" },
+  { "username": "tuser.root.e1", "password": "pass2", "name": "Root Employee 1", "role": "employee", "storeId": "000000000000000000000001" },
+  { "username": "tuser.root.e2", "password": "pass3", "name": "Root Employee 2", "role": "employee", "storeId": "000000000000000000000001" },
+
+  { "username": "tuser.bg.m1", "password": "pass4", "name": "Beograd Manager", "role": "manager", "storeId": "00000000000000000000000e" },
+  { "username": "tuser.bg.e1", "password": "pass5", "name": "Beograd Employee 1", "role": "employee", "storeId": "00000000000000000000000e" },
+  { "username": "tuser.bg.e2", "password": "pass6", "name": "Beograd Employee 2", "role": "employee", "storeId": "00000000000000000000000e" },
+
+  { "username": "tuser.nb.m1", "password": "pass7", "name": "Novi Beograd Manager", "role": "manager", "storeId": "00000000000000000000000f" },
+  { "username": "tuser.nb.e1", "password": "pass8", "name": "Novi Beograd Employee 1", "role": "employee", "storeId": "00000000000000000000000f" },
+
+  { "username": "tuser.bez.m1", "password": "pass9", "name": "Bezanija Manager", "role": "manager", "storeId": "000000000000000000000010" },
+  { "username": "tuser.bez.e1", "password": "pass10", "name": "Bezanija Employee 1", "role": "employee", "storeId": "000000000000000000000010" },
+
+  { "username": "tuser.r6.m1", "password": "pass11", "name": "Radnja 6 Manager", "role": "manager", "storeId": "000000000000000000000011" },
+  { "username": "tuser.r6.e1", "password": "pass12", "name": "Radnja 6 Employee 1", "role": "employee", "storeId": "000000000000000000000011" },
+
+  { "username": "tuser.r1.m1", "password": "pass13", "name": "Radnja 1 Manager", "role": "manager", "storeId": "000000000000000000000005" },
+  { "username": "tuser.r1.e1", "password": "pass14", "name": "Radnja 1 Employee 1", "role": "employee", "storeId": "000000000000000000000005" },
+  { "username": "tuser.r1.e2", "password": "pass15", "name": "Radnja 1 Employee 2", "role": "employee", "storeId": "000000000000000000000005" }
+]
+
+
