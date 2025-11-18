@@ -8,7 +8,7 @@ A TypeScript/Express API backed by MongoDB and Mongoose for a hierarchical groce
 - **Web**: Express 5, Joi validation
 - **DB**: MongoDB with Mongoose
 - **Auth**: JWT (HS256)
-- **Tests**: Jest + ts-jest
+- **Tests**: Jest + ts-jest + mongodb-memory-server
 - **Container**: Docker Compose (MongoDB only)
 
 ### Prerequisites
@@ -54,6 +54,7 @@ The API listens on `http://localhost:${PORT}` (default `3000`).
 
 - `npm start` — run API via `ts-node`
 - `npm test` — run Jest tests
+- `npm test:coverage` - run Jest tests with coverage
 - `npm run test:api` - run JS script that tests API
 
 Notes:

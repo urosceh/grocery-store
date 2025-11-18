@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "000000000000000000000001",
+    "displayName": "Srbija",
+    "kind": "OFFICE",
+    "children": [
+      {
+        "_id": "00000000000000000000000e",
+        "displayName": "Grad Beograd",
+        "kind": "OFFICE",
+        "children": [
+          {
+            "_id": "00000000000000000000000f",
+            "displayName": "Novi Beograd",
+            "kind": "OFFICE",
+            "children": [
+              {
+                "_id": "000000000000000000000010",
+                "displayName": "Bezanija",
+                "kind": "OFFICE",
+                "children": [
+                  {
+                    "_id": "000000000000000000000011",
+                    "displayName": "Radnja 6",
+                    "kind": "STORE"
+              },
+              {
+                "_id": "000000000000000000000018",
+                "displayName": "Radnja 2",
+                "kind": "STORE"
+                  }
+                ]
+              }
+            ]
+          },
+      {
+        "_id": "000000000000000000000019",
+        "displayName": "Radnja 3",
+        "kind": "STORE"
+      },
+          {
+            "_id": "000000000000000000000005",
+            "displayName": "Radnja 1",
+            "kind": "STORE"
+      },
+      {
+        "_id": "00000000000000000000001a",
+        "displayName": "Radnja 4",
+        "kind": "STORE"
+      }
+    ]
+  },
+  {
+    "_id": "00000000000000000000001b",
+    "displayName": "Radnja 5",
+    "kind": "STORE"
+          }
+    ]
+  }
+]
+
+

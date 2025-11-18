@@ -49,6 +49,28 @@ describe('JwtUserToken', () => {
     expect(() => JwtUserToken.verify(token)).toThrow();
   });
 
+  it('initialize warns if JWT_SECRET is empty', async () => {
+    process.env.JWT_SECRET = '';
+    delete process.env.JWT_EXPIRES_IN;
+    const JwtUserToken = await importJwtClass();
+    expect(() => JwtUserToken.initialize()).not.toThrow();
+    // Branch exercised; console.error is mocked globally
+  });
+
+  it('uses default expiration when JWT_EXPIRES_IN is missing/invalid', async () => {
+    process.env.JWT_SECRET = 'another_secret';
+    delete process.env.JWT_EXPIRES_IN; // triggers default of 2h (7200s)
+    const JwtUserToken = await importJwtClass();
+    JwtUserToken.initialize();
+    const token = JwtUserToken.sign({ username: 'bob', role: 'employee', storeId: 'b'.repeat(24) });
+    const decoded: any = jwt.decode(token);
+    expect(typeof decoded.iat).toBe('number');
+    expect(typeof decoded.exp).toBe('number');
+    const diff = decoded.exp - decoded.iat;
+    // Allow small jitter
+    expect(diff).toBeGreaterThanOrEqual(7199);
+    expect(diff).toBeLessThanOrEqual(7201);
+  });
   it('verify throws if token expired', async () => {
     process.env.JWT_SECRET = 'secret123';
     process.env.JWT_EXPIRES_IN = '1';
